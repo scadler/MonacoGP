@@ -1,5 +1,5 @@
 //creating canvas & getting context
-const canvas = document.getElementById("track");
+const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 const user = {
     x : canvas.width/2,
@@ -21,10 +21,12 @@ const racerGreen = {
     Vy : 0.4,
     Vx : -0.4,
 }
-const cone = {
-    x : 300,
+const net = {
+    x : 75 ,
     y : 0,
-    Vy : 0.4,
+    width : 450,
+    height : 50,
+    color : "red",
 }
 //draw functions 
 function drawRect(x, y, w, h, color){
@@ -67,13 +69,24 @@ function drawRacerYellow(){
     racerYellow.y += racerYellow.Vy - user.Vy
     }
 }
-function drawCone(){
-
-}
+var y = 0
 function drawText(text,x, y, color){
     context.fillStyle = color;
     context.font = "75px arial";
     context.fillText(text, x, y);
+}
+function drawNet(){
+    for(let i = -100; i <= canvas.height; i+=100){
+        drawRect(net.x, net.y + i , net.width, net.height, net.color);
+    }
+    
+    for(let i =  -100; i <= canvas.height; i+=100){
+        drawRect(net.x, net.y + i + 50, net.width, net.height, "white");
+    }
+    net.y += 2 - user.Vy
+    if(net.y >= 100){
+        net.y = 0;
+    }
 }
 function update(){
     user.x += user.Vx
@@ -96,7 +109,7 @@ function update(){
     if(racerGreen.x < 125 || racerGreen.x > canvas.width-175){
         racerGreen.Vx = -racerGreen.Vx
     }
-    else if(racerGreen.y > canvas.height+90){
+    else if(racerGreen.y > canvas.height+3){
         racerGreen.y = -90
         racerGreen.x = (Math.random()*298)+126
         racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
@@ -104,20 +117,20 @@ function update(){
     if(racerYellow.x < 125 || racerYellow.x > canvas.width-175){
         racerYellow.Vx = -racerYellow.Vx
     }
-    else if(racerYellow.y > canvas.height+90){
+    else if(racerYellow.y > canvas.height+3){
         racerYellow.y = -90
-        racerYellow.x = (Math.rsandom()*298)+126
+        racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
     }
-
 }
 function render(){
-drawRect(0, 0, canvas.width, canvas.height, "#33DD33");
+drawNet()
+drawRect(0, 0, 75, canvas.height, "#33CC33");
+drawRect(canvas.width-75, 0, canvas.width, canvas.height, "#33CC33");
 drawRect(100, 0, 400, canvas.height, "#666666");
 drawUser(user.x, user.y)
 drawRacerGreen()
 drawRacerYellow()
-drawCone()
 }
 function game(){
     render();
