@@ -1,0 +1,30 @@
+#crtScanLines{
+    z-index: 100;
+    position: absolute;
+    top: 8;
+    left: 8;
+    height: 600px;
+    width: 600px;
+    overflow: hidden;
+    opacity: 5%;
+}
+#score{
+    position: absolute;
+    top: 8;
+    left: 8;
+    color:white;
+    font-family: 'VT323', monospace;
+    font-size: 32px;
+    float: left;
+}
+#scoreNumber{
+    font-family: 'Segment7Standard';
+    font-weight: normal;
+    font-size: 26px;
+    font-style: italic;
+}
+.car{
+    height:90px;
+    width:50px;
+    mix-blend-mode: multiply;
+}
