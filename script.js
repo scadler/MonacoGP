@@ -8,14 +8,23 @@ const user = {
     Vy : 0,
     slow: 0.2,
 }
-const racer = {
-    x : 100,
-    y : 100,
-    radius : 20,
-    color : "White",
-    angleOld : 0,
-    speed : 0.5,
-    i : 0,
+const racerYellow = {
+    x : 200,
+    y : 0,
+    Vy : 0.4,
+    Vx : 0.4,
+    ready : false,
+}
+const racerGreen = {
+    x : 300,
+    y : 0,
+    Vy : 0.4,
+    Vx : -0.4,
+}
+const cone = {
+    x : 300,
+    y : 0,
+    Vy : 0.4,
 }
 //draw functions 
 function drawRect(x, y, w, h, color){
@@ -32,16 +41,34 @@ function drawUser(x,y){
     context.drawImage(user, 0, 0, 50, 90);
     context.restore();
 }
+function drawRacerGreen(){
+    var context = canvas.getContext("2d");
+    context.save()
+    context.translate(racerGreen.x,racerGreen.y)
+    var green = document.getElementById(`green`);
+    context.drawImage(green, 0, 0, 50, 90);
+    context.restore();
+    racerGreen.x += racerGreen.Vx
+    racerGreen.y += racerGreen.Vy - user.Vy
+}
+function drawRacerYellow(){
+    if(racerGreen.y < canvas.height/2 && racerYellow.ready === false){
 
-function drawCircle(x, y, r){
-    context.fillStyle = "black";
-    context.beginPath();
-    context.arc(x, y, r, 0, Math.PI*2, false);
-    context.lineWidth = 1.5;
-    context.strokeStyle = "white";
-    context.closePath();
-    context.fill();
-    context.stroke();
+    }
+    else{
+    racerYellow.ready = true
+    var context = canvas.getContext("2d");
+    context.save()
+    context.translate(racerYellow.x,racerYellow.y)
+    var Yellow = document.getElementById(`yellow`);
+    context.drawImage(Yellow, 0, 0, 50, 90);
+    context.restore();
+    racerYellow.x += racerYellow.Vx 
+    racerYellow.y += racerYellow.Vy - user.Vy
+    }
+}
+function drawCone(){
+
 }
 function drawText(text,x, y, color){
     context.fillStyle = color;
@@ -57,7 +84,7 @@ function update(){
     }
     else if(user.x > canvas.width-175){
         user.Vx = 0
-        user.x = anvas.width-176
+        user.x = canvas.width-176
     }
     else if(user.y > canvas.height-115){
         user.slow = 0
@@ -66,12 +93,31 @@ function update(){
     else if(user.y < 25){
         user.y = 26;
     }
+    if(racerGreen.x < 125 || racerGreen.x > canvas.width-175){
+        racerGreen.Vx = -racerGreen.Vx
+    }
+    else if(racerGreen.y > canvas.height+90){
+        racerGreen.y = -90
+        racerGreen.x = (Math.random()*298)+126
+        racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+    }
+    if(racerYellow.x < 125 || racerYellow.x > canvas.width-175){
+        racerYellow.Vx = -racerYellow.Vx
+    }
+    else if(racerYellow.y > canvas.height+90){
+        racerYellow.y = -90
+        racerYellow.x = (Math.rsandom()*298)+126
+        racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+    }
 
 }
 function render(){
-drawRect(0, 0, canvas.width, canvas.height, "#90EE90");
+drawRect(0, 0, canvas.width, canvas.height, "#33DD33");
 drawRect(100, 0, 400, canvas.height, "#666666");
 drawUser(user.x, user.y)
+drawRacerGreen()
+drawRacerYellow()
+drawCone()
 }
 function game(){
     render();
