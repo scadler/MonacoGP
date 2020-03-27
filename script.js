@@ -136,7 +136,7 @@ function update(){
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
-    else if(racerYellow.y < 0 && racerYellow.Vy < 0){
+    else if(racerYellow.y < -90 && racerYellow.Vy < 0){
         racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
         racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
         racerYellow.x = (Math.random()*298)+126
