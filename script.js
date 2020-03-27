@@ -8,19 +8,21 @@ const user = {
     Vy : 0,
     slow: 0.2,
     score : 0,
+    passedYellow : false,
+    passedGreen : false,
 }
 const racerYellow = {
     x : 200,
     y : -90,
-    Vy : 0.5,
-    Vx : 0.5,
+    Vy : 0.7,
+    Vx : 0.7,
     ready : false,
 }
 const racerGreen = {
     x : 300,
     y : -90,
-    Vy : 0.5,
-    Vx : -0.5,
+    Vy : 0.7,
+    Vx : -0.7,
 }
 const net = {
     x : 75 ,
@@ -42,6 +44,7 @@ function drawUser(x,y){
     var user = document.getElementById("user");
     context.drawImage(user, 0, 0, 50, 90);
     context.restore();
+    
 }
 function drawRacerGreen(){
     var context = canvas.getContext("2d");
@@ -72,7 +75,7 @@ function drawRacerYellow(){
 var y = 0
 function drawText(text,x, y, color){
     context.fillStyle = color;
-    context.font = "75px arial";
+    context.font = "75px Arial";
     context.fillText(text, x, y);
 }
 function drawNet(){
@@ -113,6 +116,7 @@ function update(){
         racerGreen.y = -90
         racerGreen.x = (Math.random()*298)+126
         racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+        user.passedGreen = false;
     }
     if(racerYellow.x < 125 || racerYellow.x > canvas.width-175){
         racerYellow.Vx = -racerYellow.Vx
@@ -121,6 +125,17 @@ function update(){
         racerYellow.y = -90
         racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+        user.passedYellow = false;
+    }
+    if(racerGreen.y > user.y && user.passedGreen === false){
+        user.passedGreen = true;
+        newScore = Number($("#span").text())+1
+        $("#span").text(newScore)
+    }
+    else if(racerYellow.y > user.y && user.passedYellow === false){
+        user.passedYellow = true;
+        newScore = Number($("#span").text())+1
+        $("#span").text(newScore)
     }
 }
 function render(){
@@ -131,7 +146,6 @@ drawRect(100, 0, 400, canvas.height, "#666666");
 drawUser(user.x, user.y)
 drawRacerGreen()
 drawRacerYellow()
-drawText(user.score, canvas.width/10, canvas.height/5, "White");
 }
 function game(){
     render();
