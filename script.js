@@ -112,8 +112,16 @@ function update(){
     if(racerGreen.x < 125 || racerGreen.x > canvas.width-175){
         racerGreen.Vx = -racerGreen.Vx
     }
-    else if(racerGreen.y > canvas.height+3){
-        racerGreen.y = -90
+    else if(racerGreen.y > canvas.height+3 && racerGreen.Vy > 0){
+        racerGreen.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
+        racerGreen.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerGreen.x = (Math.random()*298)+126
+        racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+        user.passedGreen = false;
+    }
+    else if(racerGreen.y < -90 && racerGreen.Vy < 0){
+        racerGreen.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
+        racerGreen.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
         racerGreen.x = (Math.random()*298)+126
         racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedGreen = false;
@@ -121,18 +129,37 @@ function update(){
     if(racerYellow.x < 125 || racerYellow.x > canvas.width-175){
         racerYellow.Vx = -racerYellow.Vx
     }
-    else if(racerYellow.y > canvas.height+3){
-        racerYellow.y = -90
+    else if(racerYellow.y > canvas.height+3 && racerYellow.Vy > 0){
+        racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
+        racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
         racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
-    if(racerGreen.y > user.y && user.passedGreen === false){
+    else if(racerYellow.y < 0 && racerYellow.Vy < 0){
+        racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
+        racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerYellow.x = (Math.random()*298)+126
+        racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
+        user.passedYellow = false;
+    }
+
+    if(racerGreen.y > user.y+90 && user.passedGreen === false && racerGreen.Vy > 0){
         user.passedGreen = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
     }
-    else if(racerYellow.y > user.y && user.passedYellow === false){
+    else if(racerGreen.y < user.y+90 && user.passedGreen === false && racerGreen.Vy < 0){
+        user.passedGreen = true;
+        newScore = Number($("#span").text())+1
+        $("#span").text(newScore)
+    }
+    if(racerYellow.y > user.y && user.passedYellow === false && racerYellow.Vy > 0){
+        user.passedYellow = true;
+        newScore = Number($("#span").text())+1
+        $("#span").text(newScore)
+    }
+    else if(racerYellow.y < user.y && user.passedYellow === false && racerYellow.Vy < 0){
         user.passedYellow = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
