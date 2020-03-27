@@ -7,26 +7,26 @@ const user = {
     Vx : 0,
     Vy : 0,
     slow: 0.2,
+    score : 0,
 }
 const racerYellow = {
     x : 200,
-    y : 0,
-    Vy : 0.4,
-    Vx : 0.4,
+    y : -90,
+    Vy : 0.5,
+    Vx : 0.5,
     ready : false,
 }
 const racerGreen = {
     x : 300,
-    y : 0,
-    Vy : 0.4,
-    Vx : -0.4,
+    y : -90,
+    Vy : 0.5,
+    Vx : -0.5,
 }
 const net = {
     x : 75 ,
     y : 0,
     width : 450,
     height : 50,
-    color : "red",
 }
 //draw functions 
 function drawRect(x, y, w, h, color){
@@ -77,11 +77,11 @@ function drawText(text,x, y, color){
 }
 function drawNet(){
     for(let i = -100; i <= canvas.height; i+=100){
-        drawRect(net.x, net.y + i , net.width, net.height, net.color);
+        drawRect(net.x, net.y + i , net.width, net.height, "#E9E9E9");
     }
     
     for(let i =  -100; i <= canvas.height; i+=100){
-        drawRect(net.x, net.y + i + 50, net.width, net.height, "white");
+        drawRect(net.x, net.y + i + 50, net.width, net.height, "#BB0000");
     }
     net.y += 2 - user.Vy
     if(net.y >= 100){
@@ -131,6 +131,7 @@ drawRect(100, 0, 400, canvas.height, "#666666");
 drawUser(user.x, user.y)
 drawRacerGreen()
 drawRacerYellow()
+drawText(user.score, canvas.width/10, canvas.height/5, "White");
 }
 function game(){
     render();
