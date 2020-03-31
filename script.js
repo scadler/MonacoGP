@@ -1,6 +1,10 @@
 //creating canvas & getting context
+$("#loss").hide();
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
+status = {
+    user: false,
+}
 const user = {
     x : canvas.width/2,
     y : canvas.height-190,
@@ -10,6 +14,7 @@ const user = {
     score : 0,
     passedYellow : false,
     passedGreen : false,
+    lost : false,
 }
 const racerYellow = {
     x : 200,
@@ -23,6 +28,7 @@ const racerGreen = {
     y : -90,
     Vy : 0.7,
     Vx : -0.7,
+   ready : true,
 }
 const net = {
     x : 75 ,
@@ -37,16 +43,23 @@ function drawRect(x, y, w, h, color){
 }
 var colorI = 0;
 var a = 0
-function drawUser(x,y){
+function drawUser(x,y,lost){
+    if(lost === false){
     var context = canvas.getContext("2d");
     context.save()
     context.translate(x,y)
     var user = document.getElementById("user");
     context.drawImage(user, 0, 0, 50, 90);
     context.restore();
-    
+    }
 }
-function drawRacerGreen(){
+function drawRacerGreen(lost){
+    if(lost === false){
+    if(racerYellow.y < canvas.height/2 && racerGreen.ready === false){
+
+    }
+    else{
+        racerGreen.ready = true
     var context = canvas.getContext("2d");
     context.save()
     context.translate(racerGreen.x,racerGreen.y)
@@ -55,8 +68,11 @@ function drawRacerGreen(){
     context.restore();
     racerGreen.x += racerGreen.Vx
     racerGreen.y += racerGreen.Vy - user.Vy
+    }
 }
-function drawRacerYellow(){
+}
+function drawRacerYellow(lost){
+    if(lost === false){
     if(racerGreen.y < canvas.height/2 && racerYellow.ready === false){
 
     }
@@ -71,6 +87,7 @@ function drawRacerYellow(){
     racerYellow.x += racerYellow.Vx 
     racerYellow.y += racerYellow.Vy - user.Vy
     }
+}
 }
 var y = 0
 function drawText(text,x, y, color){
@@ -91,9 +108,41 @@ function drawNet(){
         net.y = 0;
     }
 }
-function update(){
+function checkCollision(xa,ya,xb,yb,user,type){
+    if(racerYellow.ready === false && racerGreen.ready === false){
+        racerGreen.ready = true
+    }
+    if(xa < xb + 50 && xa + 50 > xb && ya < yb +90 && ya + 90 > yb){
+        if(user === true){
+                status.user = false;
+                 newCounterScore = Number($("#spanCollision").text())+1
+                $("#spanCollision").text(newCounterScore)
+            if(type === "yellow"){
+                racerYellow.y = -90
+                racerYellow.ready = false
+            }
+            else if(type === "green"){
+                racerGreen.y = -90
+                racerGreen.ready = false
+            }
+            else if(type === "both"){
+                racerGreen.Vx = -racerGreen.Vx
+                racerYellow.Vx = -racerYellow.Vx
+            }
+        }
+    else{
+        status.user = true
+    }
+}
+} 
+function update(lost){
+    if(lost === false){
     user.x += user.Vx
     user.y += user.Vy + user.slow
+    if(Number($("#spanCollision").text()) === 3){
+        $("#loss").show();
+        user.lost = true
+    }
     if(user.x < 125){
         user.Vx = 0
         user.x = 126
@@ -136,20 +185,22 @@ function update(){
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
-    else if(racerYellow.y < -90 && racerYellow.Vy < 0){
+    else if(racerYellow.y < 0 && racerYellow.Vy < 0){
         racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
         racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
         racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
-
-    if(racerGreen.y > user.y+90 && user.passedGreen === false && racerGreen.Vy > 0){
+}
+}
+function scoreUpdate(){
+    if(racerGreen.y > user.y && user.passedGreen === false && racerGreen.Vy > 0){
         user.passedGreen = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
     }
-    else if(racerGreen.y < user.y+90 && user.passedGreen === false && racerGreen.Vy < 0){
+    else if(racerGreen.y < user.y && user.passedGreen === false && racerGreen.Vy < 0){
         user.passedGreen = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
@@ -170,13 +221,16 @@ drawNet()
 drawRect(0, 0, 75, canvas.height, "#33CC33");
 drawRect(canvas.width-75, 0, canvas.width, canvas.height, "#33CC33");
 drawRect(100, 0, 400, canvas.height, "#666666");
-drawUser(user.x, user.y)
-drawRacerGreen()
-drawRacerYellow()
+drawUser(user.x, user.y,user.lost)
+drawRacerGreen(user.lost)
+drawRacerYellow(user.lost)
+checkCollision(user.x,user.y,racerGreen.x,racerGreen.y,true,"green")
+checkCollision(user.x,user.y,racerYellow.x,racerYellow.y,true,"yellow")
+scoreUpdate();
 }
 function game(){
     render();
-    update()
+    update(user.lost)
 }
 setInterval(game,)
 document.addEventListener('keydown', keyPressed)

@@ -24,11 +24,41 @@
     float: left;
     z-index: 1000;
 }
+#loss{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 10;
+    left: 100;
+    color:white;
+    font-size: 52px;
+    float: left;
+    z-index: 1000;
+}
+#collisionCounter{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 10;
+    left: 475;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
 #scoreNumber{
     font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     font-size: 26px;
     font-style: italic;
+}
+#lostText{
+    font-family: 'Press Start 2P', cursive;
+    font-weight: normal;
+    position: absolute;
+    top: 50;
+    left:77;
+    display:center;
+    font-size: 58px;
+    z-index: 1000;
 }
 .car{
     height:90px;
