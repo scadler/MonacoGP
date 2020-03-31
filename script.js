@@ -116,7 +116,9 @@ function checkCollision(xa,ya,xb,yb,user,type){
         if(user === true){
                 status.user = false;
                  newCounterScore = Number($("#spanCollision").text())+1
+                 if(newCounterScore < 4){
                 $("#spanCollision").text(newCounterScore)
+                 }
             if(type === "yellow"){
                 racerYellow.y = -90
                 racerYellow.ready = false
