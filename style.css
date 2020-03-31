@@ -163,6 +163,13 @@
     width:600px;
     height:600px;
     z-index:10000;
-    opacity:10%;
+    opacity:20%;
     overflow: hidden;
+}
+#greenButton{
+    position:absolute;
+    top: 608px;
+    left:20px;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 10px;
 }

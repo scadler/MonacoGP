@@ -6,6 +6,13 @@ const context = canvas.getContext("2d");
 status = {
     user: false,
 }
+colors = {
+    grass : "#33CC33",
+    pavement : "#666666",
+    netlight : "#FFFFFF",
+    netdark: "#FF0000",
+    yellowSRC: "https://imgur.com/LPdjhnl.jpg"
+}
 const user = {
     x : canvas.width/2,
     y : canvas.height-190,
@@ -49,7 +56,12 @@ function drawUser(x,y,lost){
     var context = canvas.getContext("2d");
     context.save()
     context.translate(x,y)
-    var user = document.getElementById("user");
+    if(colors.grass==="#33CC33"){
+    var user = document.getElementById(`userC`);
+    }
+    else if(colors.grass === "#00a900"){
+    var user = document.getElementById(`userG`);
+    }
     context.drawImage(user, 0, 0, 50, 90);
     context.restore();
     }
@@ -67,7 +79,12 @@ function drawRacerGreen(lost){
     var context = canvas.getContext("2d");
     context.save()
     context.translate(racerGreen.x,racerGreen.y)
-    var green = document.getElementById(`green`);
+    if(colors.grass==="#33CC33"){
+    var green = document.getElementById(`greenC`);
+    }
+    else if(colors.grass === "#00a900"){
+    var green = document.getElementById(`greenG`);
+    }
     context.drawImage(green, 0, 0, 50, 90);
     context.restore();
     racerGreen.x += racerGreen.Vx
@@ -88,7 +105,12 @@ function drawRacerYellow(lost){
     var context = canvas.getContext("2d");
     context.save()
     context.translate(racerYellow.x,racerYellow.y)
-    var Yellow = document.getElementById(`yellow`);
+    if(colors.grass==="#33CC33"){
+    var Yellow = document.getElementById(`yellowC`);
+    }
+    else if(colors.grass === "#00a900"){
+    var Yellow = document.getElementById(`yellowG`);
+    }
     context.drawImage(Yellow, 0, 0, 50, 90);
     context.restore();
     racerYellow.x += racerYellow.Vx 
@@ -104,11 +126,11 @@ function drawText(text,x, y, color){
 }
 function drawNet(){
     for(let i = -100; i <= canvas.height; i+=100){
-        drawRect(net.x, net.y + i , net.width, net.height, "#E9E9E9");
+        drawRect(net.x, net.y + i , net.width, net.height, colors.netlight);
     }
     
     for(let i =  -100; i <= canvas.height; i+=100){
-        drawRect(net.x, net.y + i + 50, net.width, net.height, "#BB0000");
+        drawRect(net.x, net.y + i + 50, net.width, net.height, colors.netdark);
     }
     if(user.lost === false){
     net.y += 2 - user.Vy
@@ -229,9 +251,9 @@ function scoreUpdate(){
 }
 function render(){
 drawNet()
-drawRect(0, 0, 75, canvas.height, "#33CC33");
-drawRect(canvas.width-75, 0, canvas.width, canvas.height, "#33CC33");
-drawRect(100, 0, 400, canvas.height, "#666666");
+drawRect(0, 0, 75, canvas.height, colors.grass);
+drawRect(canvas.width-75, 0, canvas.width, canvas.height, colors.grass);
+drawRect(100, 0, 400, canvas.height, colors.pavement);
 drawUser(user.x, user.y,user.lost)
 drawRacerGreen(user.lost)
 drawRacerYellow(user.lost)
@@ -286,3 +308,25 @@ function reset(){
     user.Vx = 0;
     user.Vy = 0;
 }
+var i = 0
+$("#greenButton").click(function(){
+    i++
+    if(i % 2 === 1){
+    colors.grass = "#00a900"
+    colors.pavement = "#006400"
+    colors.netlight = "#00E500"
+    colors.netdark = "#008F00"
+    $(".scores").css("color", "#00E500")
+    $(".ids").css("color", "#00E500")
+    $("#loss").css("color", "#00E500")
+    }
+    else{
+    colors.grass = "#33CC33"
+    colors.pavement = "#666666"
+    colors.netlight = "#FFFFFF"
+    colors.netdark = "#FF0000"
+    $(".scores").css("color", "#FFFFFF")
+    $("#loss").css("color", "#FFFFFF")
+    $(".ids").css("color", "#FFFFFF")
+    }
+})
