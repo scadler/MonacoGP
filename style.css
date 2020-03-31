@@ -44,7 +44,17 @@
     float: left;
     z-index: 1000;
 }
-#start{
+#startA{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 40;
+    left: 170;
+    color:white;
+    font-size: 52px;
+    float: left;
+    z-index: 1000;
+}
+#startB{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 90;
@@ -58,7 +68,7 @@
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 240;
-    left: 200;
+    left: 180;
     color:white;
     font-size: 20px;
     float: left;
@@ -68,7 +78,7 @@
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 260;
-    left: 200;
+    left: 180;
     color:white;
     font-size: 20px;
     float: left;
@@ -78,7 +88,7 @@
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 280;
-    left: 200;
+    left: 180;
     color:white;
     font-size: 20px;
     float: left;
@@ -88,7 +98,7 @@
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 300;
-    left: 200;
+    left: 180;
     color:white;
     font-size: 20px;
     float: left;
