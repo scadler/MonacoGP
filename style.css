@@ -24,6 +24,16 @@
     float: left;
     z-index: 1000;
 }
+#scoreID{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 10;
+    left: 125;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
 #loss{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
@@ -34,11 +44,72 @@
     float: left;
     z-index: 1000;
 }
+#start{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 90;
+    left: 170;
+    color:white;
+    font-size: 52px;
+    float: left;
+    z-index: 1000;
+}
+#w{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 240;
+    left: 200;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
+#a{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 260;
+    left: 200;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
+#s{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 280;
+    left: 200;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
+#d{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 300;
+    left: 200;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
+
 #collisionCounter{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
     top: 10;
     left: 475;
+    color:white;
+    font-size: 20px;
+    float: left;
+    z-index: 1000;
+}
+#collisionID{
+    font-family: 'Press Start 2P', cursive;
+    position: absolute;
+    top: 10;
+    left: 385;
     color:white;
     font-size: 20px;
     float: left;

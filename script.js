@@ -1,5 +1,6 @@
 //creating canvas & getting context
 $("#loss").hide();
+$(".scores").hide();
 const canvas = document.getElementById("canvas");
 const context = canvas.getContext("2d");
 status = {
@@ -14,7 +15,7 @@ const user = {
     score : 0,
     passedYellow : false,
     passedGreen : false,
-    lost : false,
+    lost : true,
 }
 const racerYellow = {
     x : 200,
@@ -58,6 +59,9 @@ function drawRacerGreen(lost){
     if(racerYellow.y < canvas.height/2 && racerGreen.ready === false){
 
     }
+    if(racerYellow.y < canvas.height/2 && racerYellow.y > racerGreen.y){
+        
+    }
     else{
         racerGreen.ready = true
     var context = canvas.getContext("2d");
@@ -74,6 +78,9 @@ function drawRacerGreen(lost){
 function drawRacerYellow(lost){
     if(lost === false){
     if(racerGreen.y < canvas.height/2 && racerYellow.ready === false){
+
+    }
+    if(racerGreen.y < canvas.height/2 && racerGreen.y > racerYellow.y){
 
     }
     else{
@@ -117,8 +124,8 @@ function checkCollision(xa,ya,xb,yb,user,type){
     if(xa < xb + 50 && xa + 50 > xb && ya < yb +90 && ya + 90 > yb){
         if(user === true){
                 status.user = false;
-                 newCounterScore = Number($("#spanCollision").text())+1
-                 if(newCounterScore < 4){
+                 newCounterScore = Number($("#spanCollision").text())-1
+                 if(newCounterScore >= 0){
                 $("#spanCollision").text(newCounterScore)
                  }
             if(type === "yellow"){
@@ -143,7 +150,7 @@ function update(lost){
     if(lost === false){
     user.x += user.Vx
     user.y += user.Vy + user.slow
-    if(Number($("#spanCollision").text()) === 3){
+    if(Number($("#spanCollision").text()) === 0){
         $("#loss").show();
         user.lost = true
     }
@@ -256,7 +263,26 @@ function keyPressed(e){
     }
     else if(key == " ") {
     e.preventDefault();
+    if(user.lost === true){
+    user.lost = false
+    $(".ids").hide();
+    $(".scores").show();
+    reset()
+    }
   }
 }
 function keyUp(){
+}
+function reset(){
+    $("#spanCollision").text("3");
+    $("#loss").hide()
+    racerGreen.y = -90;
+    racerYellow.y = -90;
+    racerYellow.ready = false
+    racerGreen.ready = true;
+    user.x = canvas.width/2
+    user.y = canvas.height-190,
+    $("#span").text("0");
+    user.Vx = 0;
+    user.Vy = 0;
 }
