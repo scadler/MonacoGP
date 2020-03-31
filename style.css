@@ -177,3 +177,13 @@
 html{
     background-color: #222222;
 }
+#border{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    height: 616px;
+    width: 616px;
+    background-color: #050505;
+    border: 5px solid #050505;
+    border-radius: 10px;
+}
