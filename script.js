@@ -103,10 +103,12 @@ function drawNet(){
     for(let i =  -100; i <= canvas.height; i+=100){
         drawRect(net.x, net.y + i + 50, net.width, net.height, "#BB0000");
     }
+    if(user.lost === false){
     net.y += 2 - user.Vy
     if(net.y >= 100){
         net.y = 0;
     }
+}
 }
 function checkCollision(xa,ya,xb,yb,user,type){
     if(racerYellow.ready === false && racerGreen.ready === false){
