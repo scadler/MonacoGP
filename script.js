@@ -20,14 +20,14 @@ const user = {
 const racerYellow = {
     x : 200,
     y : -90,
-    Vy : 0.7,
+    Vy : 0.9,
     Vx : 0.7,
     ready : false,
 }
 const racerGreen = {
     x : 300,
     y : -90,
-    Vy : 0.7,
+    Vy : 0.9,
     Vx : -0.7,
    ready : true,
 }
@@ -173,15 +173,15 @@ function update(lost){
         racerGreen.Vx = -racerGreen.Vx
     }
     else if(racerGreen.y > canvas.height+3 && racerGreen.Vy > 0){
-        racerGreen.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
-        racerGreen.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerGreen.y =  -90;
+        racerGreen.Vy = 0.9;
         racerGreen.x = (Math.random()*298)+126
         racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedGreen = false;
     }
     else if(racerGreen.y < -90 && racerGreen.Vy < 0){
-        racerGreen.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
-        racerGreen.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerGreen.y =  -90;
+        racerGreen.Vy =  0.9;
         racerGreen.x = (Math.random()*298)+126
         racerGreen.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedGreen = false;
@@ -190,15 +190,15 @@ function update(lost){
         racerYellow.Vx = -racerYellow.Vx
     }
     else if(racerYellow.y > canvas.height+3 && racerYellow.Vy > 0){
-        racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
-        racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerYellow.y =  -90;
+        racerYellow.Vy =  0.9;
         racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
     else if(racerYellow.y < 0 && racerYellow.Vy < 0){
-        racerYellow.y = (Number($("#span").text())%40 >= 20) ? canvas.height : -90;
-        racerYellow.Vy = (Number($("#span").text())%40 >= 20) ? -0.7: 0.7;
+        racerYellow.y =  -90;
+        racerYellow.Vy =  0.9;
         racerYellow.x = (Math.random()*298)+126
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
