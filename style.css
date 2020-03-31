@@ -162,7 +162,7 @@
     width:600px;
     height:600px;
     z-index:10000;
-    opacity:20%;
+    opacity:100%;
     overflow: hidden;
 }
 #greenButton{
