@@ -156,3 +156,13 @@
     height:6000;
     z-index: -100;
 }
+#scanlines{
+    position:absolute;
+    top: 8px;
+    left:8px;
+    width:600px;
+    height:600px;
+    z-index:10000;
+    opacity:10%;
+    overflow: hidden;
+}
