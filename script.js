@@ -335,10 +335,10 @@ function circularText(txt, radius, classIndex) {
     classIndex = document.getElementsByClassName("title")[classIndex];
 
   var deg = 25 / txt.length,
-    origin = -11.69;
+    origin = -12.5;
 
   txt.forEach((ea) => {
-    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
+    ea = `<b><i><p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p></i></b>`;
     classIndex.innerHTML += ea;
     origin += deg;
   });
