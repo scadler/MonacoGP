@@ -266,7 +266,13 @@ text-shadow: -1.2px -1.2px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2p
     width:85px;
    font-size: 46px;
     height: 48.1px;
+}
+.scoreBack{
+    width:85px;
+   font-size: 46px;
+    height: 48.1px;
     background-color: #210;
+    color:#100;
 }
 #scoreLabel{
    font-family: 'Cousine', monospace;
@@ -287,6 +293,13 @@ border: 1px solid #000
     top:0;
     left:75;
     box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
-border: 1px solid #000
-    /* text-shadow: -1px -1px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2px -1.2px 0 #FFF;
+border: 1px solid #000;
+}
+#scoreDivBack{
+    height: 144px;
+    position:absolute;
+    top:0;
+    left:75;
+    box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
+border: 1px solid #000;
 }
