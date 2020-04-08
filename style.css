@@ -11,14 +11,14 @@
 #canvas{
     z-index:10;
     position:absolute;
-    top:8px;
+    top: calc(50vh - 300px);
     left: calc(50vw - 300px);
 }
 
 #score{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 10;
+    top: calc(10px + calc(50vh - 300px));
     left: calc(125px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -28,7 +28,7 @@
 #scoreID{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 10;
+    top: calc(10px + calc(50vh - 300px));
     left: calc(125px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -38,7 +38,7 @@
 #loss{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 10;
+    top: calc(10px + calc(50vh - 300px));
     left: calc(92px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -48,7 +48,7 @@
 #startA{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 40;
+    top: calc(40px + calc(50vh - 300px));
     left: calc(170px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -58,7 +58,7 @@
 #startB{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 90;
+    top: calc(90px + calc(50vh - 300px));
     left: calc(170px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -68,7 +68,7 @@
 #w{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 240;
+    top: calc(240px + calc(50vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -78,7 +78,7 @@
 #a{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 260;
+    top: calc(260px + calc(50vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -88,7 +88,7 @@
 #s{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 280;
+    top: calc(280px + calc(50vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -98,7 +98,7 @@
 #d{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 300;
+    top: calc(300px + calc(50vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -109,8 +109,8 @@
 #collisionCounter{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 10;
-    left: calc(475px + calc(50vw - 300px));
+    top: calc(10px + calc(50vh - 300px));
+    left: calc(455px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
     float: left;
@@ -119,7 +119,7 @@
 #collisionID{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: 10;
+    top: calc(10px + calc(50vh - 300px));
     left: calc(385px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -136,7 +136,7 @@
     font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     position: absolute;
-    top: 50;
+    top: calc(50px + calc(50vh - 300px));
     left:calc(77px + calc(50vw - 300px));
     display:center;
     font-size: 58px;
@@ -159,7 +159,7 @@
 }
 #scanlines{
     position:absolute;
-    top: 8px;
+    top: calc(50vh - 300px);
     left:calc(50vw - 300px);
     width:600px;
     height:600px;
@@ -169,7 +169,7 @@
 }
 #greenButton{
     position:absolute;
-    top: 628px;
+    top: calc(628px + calc(50vh - 300px));
     left:calc(20px + calc(50vw - 300px));
     font-family: 'Press Start 2P', cursive;
     font-size: 10px;
@@ -181,11 +181,23 @@ html{
 }
 #border{
     position: absolute;
-    top: 0px;
+    top: calc(50vh - 308px);
     left: calc(50vw - 308px);
     height: 616px;
     width: 616px;
     background-color: #050505;
     border: 5px solid #050505;
     border-radius: 10px;
+}
+#table {
+  /*centers in the container*/
+  text-align: center;
+}
+
+#curvedText {
+  /*allows for centering*/
+  display: inline-block;
+  /*adjust as needed*/
+  margin-bottom: 128px;
+  color: whitesmoke;
 }

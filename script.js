@@ -330,3 +330,18 @@ $("#greenButton").click(function(){
     $(".ids").css("color", "#FFFFFF")
     }
 })
+function circularText(txt, radius, classIndex) {
+  txt = txt.split(""),
+    classIndex = document.getElementsByClassName("title")[classIndex];
+
+  var deg = 360 / txt.length,
+    origin = -40;
+
+  txt.forEach((ea) => {
+    ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
+    classIndex.innerHTML += ea;
+    origin += deg;
+  });
+}
+
+circularText("MONACO GP", 50, 0);
