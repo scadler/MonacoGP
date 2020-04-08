@@ -23,6 +23,7 @@ const user = {
     passedYellow : false,
     passedGreen : false,
     lost : true,
+    speedMultiplier: 0,
 }
 const racerYellow = {
     x : 200,
@@ -88,7 +89,7 @@ function drawRacerGreen(lost){
     context.drawImage(green, 0, 0, 50, 90);
     context.restore();
     racerGreen.x += racerGreen.Vx
-    racerGreen.y += racerGreen.Vy - user.Vy
+    racerGreen.y += racerGreen.Vy - user.Vy + user.speedMultiplier
     }
 }
 }
@@ -114,7 +115,7 @@ function drawRacerYellow(lost){
     context.drawImage(Yellow, 0, 0, 50, 90);
     context.restore();
     racerYellow.x += racerYellow.Vx 
-    racerYellow.y += racerYellow.Vy - user.Vy
+    racerYellow.y += racerYellow.Vy - user.Vy + user.speedMultiplier
     }
 }
 }
@@ -133,7 +134,7 @@ function drawNet(){
         drawRect(net.x, net.y + i + 50, net.width, net.height, colors.netdark);
     }
     if(user.lost === false){
-    net.y += 2 - user.Vy
+    net.y += 1.5 - user.Vy
     if(net.y >= 100){
         net.y = 0;
     }
@@ -175,6 +176,27 @@ function update(lost){
     if(Number($("#spanCollision").text()) === 0){
         $("#loss").show();
         user.lost = true
+        if($("#span").text().length === 1){
+            score = "00"+$("#span").text()
+        }
+        else if($("#span").text().length === 2){
+            score = "0"+$("#span").text()
+        }
+        else{
+            score = $("#span").text()
+        }
+        if(Number($("#span").text()) > Number($("#topScore").text())){
+            $("#thirdScore").text($("#secondScore").text())
+            $("#secondScore").text($("#topScore").text())
+            $("#topScore").text(score)
+        }
+        else if(Number($("#span").text()) > Number($("#secondScore").text())){
+            $("#thirdScore").text($("#secondScore").text())
+            $("#secondScore").text(score)
+        }
+        else if(Number($("#span").text()) > Number($("#thirdScore").text())){
+            $("#thirdScore").text(score)
+        }
     }
     if(user.x < 125){
         user.Vx = 0
@@ -225,6 +247,8 @@ function update(lost){
         racerYellow.Vx = (Math.random() > 0.5) ? -0.4 : 0.4
         user.passedYellow = false;
     }
+} else if(lost === true){
+ 
 }
 }
 function scoreUpdate(){
@@ -232,21 +256,33 @@ function scoreUpdate(){
         user.passedGreen = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
+        if(user.speedMultiplier < 0.5){
+            user.speedMultiplier += 0.002
+        }
     }
     else if(racerGreen.y < user.y && user.passedGreen === false && racerGreen.Vy < 0){
         user.passedGreen = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
+        if(user.speedMultiplier < 0.5){
+            user.speedMultiplier += 0.002
+        }
     }
     if(racerYellow.y > user.y && user.passedYellow === false && racerYellow.Vy > 0){
         user.passedYellow = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
+        if(user.speedMultiplier < 0.5){
+            user.speedMultiplier += 0.002
+        }
     }
     else if(racerYellow.y < user.y && user.passedYellow === false && racerYellow.Vy < 0){
         user.passedYellow = true;
         newScore = Number($("#span").text())+1
         $("#span").text(newScore)
+        if(user.speedMultiplier < 0.5){
+            user.speedMultiplier += 0.002
+        }
     }
 }
 function render(){
@@ -304,6 +340,7 @@ function reset(){
     racerGreen.ready = true;
     user.x = canvas.width/2
     user.y = canvas.height-190,
+    user.speedMultiplier = 0;
     $("#span").text("0");
     user.Vx = 0;
     user.Vy = 0;

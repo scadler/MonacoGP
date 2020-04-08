@@ -206,7 +206,7 @@ html{
   font-size:90px;
   margin-bottom: 308px;
   color: #ffff00;
-text-shadow: -1px -1px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2px -1.2px 0 #FFF;
+text-shadow: -1.2px -1.2px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2px -1.2px 0 #FFF;
   -webkit-text-stroke: 1.3px #000;
    font-family: 'Cousine', monospace;
 }
@@ -249,4 +249,44 @@ text-shadow: -1px -1px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2px -1
 	height: 100vh;
     background-color:#3a3a3a;
     z-index: -2
+}
+#scores{
+    position:absolute;
+    top:20vh;
+    left: calc(50vw - 543px);
+    z-index: 1000;
+    width:100px;
+    font-family: 'Segment7Standard';
+   font-weight: normal;
+   font-style: italic;
+    color:#ff0000;
+    height: 147px;
+}
+.score{
+    width:85px;
+   font-size: 46px;
+    height: 48.1px;
+    background-color: #210;
+}
+#scoreLabel{
+   font-family: 'Cousine', monospace;
+   font-size: 30px;
+    color:#fff;
+    background-color: #c00;
+    height: 144px;
+    width: 40px;
+    writing-mode: vertical-lr;
+text-orientation: upright;
+letter-spacing: -10px;
+box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
+border: 1px solid #000
+}
+#scoreDiv{
+    height: 144px;
+    position:absolute;
+    top:0;
+    left:75;
+    box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
+border: 1px solid #000
+    /* text-shadow: -1px -1px 0 #FFF, 1.2px 1.2px 0 #FFF, -1.2px 1.2px 0 #FFF, 1.2px -1.2px 0 #FFF;
 }
