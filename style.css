@@ -189,15 +189,23 @@ html{
     border: 5px solid #050505;
     border-radius: 10px;
 }
-#table {
+#topText {
   /*centers in the container*/
   text-align: center;
+   position:absolute;
+  top: -160px;
+  left: calc(50vw);
 }
 
 #curvedText {
   /*allows for centering*/
+  position:absolute;
+  top: 15px;
   display: inline-block;
   /*adjust as needed*/
-  margin-bottom: 128px;
-  color: whitesmoke;
+  font-size:70px;
+  margin-bottom: 308px;
+  color: #ff0000;
+   -webkit-text-stroke: 2px #FFFF00;
+   font-family: 'Racing Sans One', cursive;
 }

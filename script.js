@@ -334,8 +334,8 @@ function circularText(txt, radius, classIndex) {
   txt = txt.split(""),
     classIndex = document.getElementsByClassName("title")[classIndex];
 
-  var deg = 360 / txt.length,
-    origin = -40;
+  var deg = 25 / txt.length,
+    origin = -11.69;
 
   txt.forEach((ea) => {
     ea = `<p style='height:${radius}px;position:absolute;transform:rotate(${origin}deg);transform-origin:0 100%'>${ea}</p>`;
@@ -344,4 +344,4 @@ function circularText(txt, radius, classIndex) {
   });
 }
 
-circularText("MONACO GP", 50, 0);
+circularText("MONACO GP", 1250, 0);
