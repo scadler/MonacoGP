@@ -1,4 +1,4 @@
-//creating canvas & getting context
+//creating canvas & getting context 
 $("#loss").hide();
 $(".scores").hide();
 const canvas = document.getElementById("canvas");
