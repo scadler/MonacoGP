@@ -303,3 +303,21 @@ border: 1px solid #000;
     box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
 border: 1px solid #000;
 }
+#instructions{
+    position:absolute;
+    top:75vh;
+    left: calc(50vw + 400px);
+    box-shadow: -1.2px -1.2px 0 #fff, 1.2px 1.2px 0 #fff, -1.2px 1.2px 0 #fff, 1.2px -1.2px 0 #fff;
+    border: 1px solid #000;
+    font-family: 'Cousine', monospace;
+    color: #eee;
+   font-size: 12px;
+   background:#191919;
+   width:250px;
+}
+#titleIntro{
+    justify-content: center;
+    font-size: 30px;
+    color:#fff;
+    background-color: #c00;
+}
