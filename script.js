@@ -345,3 +345,9 @@ function circularText(txt, radius, classIndex) {
 }
 
 circularText("MONACO GP", 1250, 0);
+function noScroll() {
+  window.scrollTo(0, 0);
+}
+
+// add listener to disable scroll
+window.addEventListener('scroll', noScroll);

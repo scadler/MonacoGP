@@ -11,14 +11,14 @@
 #canvas{
     z-index:10;
     position:absolute;
-    top: calc(50vh - 300px);
+    top: calc(53vh - 300px);
     left: calc(50vw - 300px);
 }
 
 #score{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(10px + calc(50vh - 300px));
+    top: calc(10px + calc(53vh - 300px));
     left: calc(125px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -28,7 +28,7 @@
 #scoreID{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(10px + calc(50vh - 300px));
+    top: calc(10px + calc(53vh - 300px));
     left: calc(125px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -38,7 +38,7 @@
 #loss{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(10px + calc(50vh - 300px));
+    top: calc(10px + calc(53vh - 300px));
     left: calc(92px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -48,7 +48,7 @@
 #startA{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(40px + calc(50vh - 300px));
+    top: calc(40px + calc(53vh - 300px));
     left: calc(170px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -58,7 +58,7 @@
 #startB{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(90px + calc(50vh - 300px));
+    top: calc(90px + calc(53vh - 300px));
     left: calc(170px + calc(50vw - 300px));
     color:white;
     font-size: 52px;
@@ -68,7 +68,7 @@
 #w{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(240px + calc(50vh - 300px));
+    top: calc(240px + calc(53vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -78,7 +78,7 @@
 #a{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(260px + calc(50vh - 300px));
+    top: calc(260px + calc(53vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -88,7 +88,7 @@
 #s{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(280px + calc(50vh - 300px));
+    top: calc(280px + calc(53vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -98,7 +98,7 @@
 #d{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(300px + calc(50vh - 300px));
+    top: calc(300px + calc(53vh - 300px));
     left: calc(180px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -109,7 +109,7 @@
 #collisionCounter{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(10px + calc(50vh - 300px));
+    top: calc(10px + calc(53vh - 300px));
     left: calc(455px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -119,7 +119,7 @@
 #collisionID{
     font-family: 'Press Start 2P', cursive;
     position: absolute;
-    top: calc(10px + calc(50vh - 300px));
+    top: calc(10px + calc(53vh - 300px));
     left: calc(385px + calc(50vw - 300px));
     color:white;
     font-size: 20px;
@@ -136,7 +136,7 @@
     font-family: 'Press Start 2P', cursive;
     font-weight: normal;
     position: absolute;
-    top: calc(50px + calc(50vh - 300px));
+    top: calc(50px + calc(53vh - 300px));
     left:calc(77px + calc(50vw - 300px));
     display:center;
     font-size: 58px;
@@ -159,7 +159,7 @@
 }
 #scanlines{
     position:absolute;
-    top: calc(50vh - 300px);
+    top: calc(53vh - 300px);
     left:calc(50vw - 300px);
     width:600px;
     height:600px;
@@ -169,7 +169,7 @@
 }
 #greenButton{
     position:absolute;
-    top: calc(628px + calc(50vh - 300px));
+    top: calc(628px + calc(53vh - 300px));
     left:calc(20px + calc(50vw - 300px));
     font-family: 'Press Start 2P', cursive;
     font-size: 10px;
@@ -177,11 +177,11 @@
     border-color: #222222;
 }
 html{
-    background-color: #222222;
+    background-color: #222;
 }
 #border{
     position: absolute;
-    top: calc(50vh - 308px);
+    top: calc(53vh - 308px);
     left: calc(50vw - 308px);
     height: 616px;
     width: 616px;
@@ -200,17 +200,52 @@ html{
 #curvedText {
   /*allows for centering*/
   position:absolute;
-  top: 15px;
+  top: 4vh;
   display: inline-block;
   /*adjust as needed*/
   font-size:90px;
   margin-bottom: 308px;
   color: #ff0000;
    -webkit-text-stroke: 2px #FFFF00;
-    /* font-family: 'Faster One', cursive; */
-   /* font-family: 'Racing Sans One', cursive; */
-   /* font-family: 'Bowlby One SC', cursive; */
    font-family: 'Cousine', monospace;
 }
-
-/* font-family: 'Faster One', cursive; */
+#trapezoidBottom{
+    position:absolute;
+    top:  calc(53vh + 300px);
+    left: calc(50vw - 343px);
+	border-bottom:  calc(97vh - calc(50vh + 300px)) solid #444;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	height: 0;
+	width: 616px;
+    z-index: -1
+}
+#trapezoidTop{
+    position:absolute;
+    top: 0px;
+    left: calc(50vw - 343px);
+	border-top: calc(55vh - 300px) solid #2a2a2a;
+	border-left: 40px solid transparent;
+	border-right: 40px solid transparent;
+	height: 0;
+	width: 616px;
+    z-index: -1
+}
+#trapezoidLeft{
+    position:absolute;
+    top: 0px;
+    left: calc(50vw - 343px);
+	width: 40px;
+	height: 100vh;
+    background-color:#2e2e2e;
+    z-index: -2
+}
+#trapezoidRight{
+    position:absolute;
+    top: 0px;
+    left: calc(50vw + 313px);
+	width: 40px;
+	height: 100vh;
+    background-color:#3a3a3a;
+    z-index: -2
+}
